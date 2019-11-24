@@ -1,0 +1,348 @@
+/* DECLARING VARIABLES */
+
+:root{
+  --main-primary: #C61740;
+  --main-secondary: #F19953;
+  --main-tertiary: #37567A;
+  --main-white: #F0F0F0;
+  --main-grey: #413E47;
+}
+
+*{
+  margin : 0 ;
+  padding: 0 ;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html{
+  scroll-behavior: smooth;
+  box-sizing: box-sizing;
+  /* (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* NAVBAR */
+
+#navbar {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-primary);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  #navbar {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: var(--main-secondary);
+}
+
+#navbar ul{
+  list-style : none;
+}
+
+/* WELCOME SECTION */
+
+#welcome-section{
+  background: url("https://images.unsplash.com/photo-1565151284956-f36a351d6157?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+
+.overlay{
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  padding: 2.5rem 0rem;
+}
+
+#welcome-section p {
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--main-primary);
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .10em solid; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 20% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--main-primary); }
+}
+
+/* ABOUT SECTION */
+
+#about{
+  background: url("https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#about h1{
+  margin: 4.2rem auto;
+}
+
+.skills-list{
+  
+  width: 50%;
+  margin: 6rem auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.skills-list li {
+  color: var(--main-secondary);
+  border: 2px solid var(--main-secondary);
+  padding: 2rem;
+  margin: 1em auto;
+  font-size: 2.2rem;
+  font-weight: 400;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.skills-list li:hover{
+  background: var(--main-secondary);
+  color: var(--main-grey);
+}
+
+/* PORTFOLIO SECTION */
+
+#projects {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-secondary);
+}
+
+.header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .header {
+    font-size: 4rem;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  #projects{
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-grey);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.project-tile p{
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.project-tile:hover p{
+  color: var(--main-secondary);
+  transform: scale(1.2);
+}
+
+#view-more{
+  background: var(--main-primary);
+  padding: 1.5rem;  
+  transition: all 1s;
+}
+
+#view-more:hover{
+  color: var(--main-secondary);
+  background: var(--main-tertiary);
+}
+
+/* CONTACT SECTION */
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  background: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-links {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-links:hover {
+  transform: translateY(8px);
+}
+
+/* FOOTER SECTION */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--main-grey);
+  border-top: 4px solid var(--main-primary);
+}
+
+footer > p {
+  margin: 2rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
